@@ -11,6 +11,7 @@ import StudentWorksSection from "@/components/sections/StudentWorksSection";
 import BenefitsSection from "@/components/sections/BenefitsSection";
 import FAQSection from "@/components/sections/FAQSection";
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = () => {
   return (
@@ -54,6 +55,7 @@ const Index = () => {
         </AnimatedSection>
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };

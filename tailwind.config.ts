@@ -119,6 +119,52 @@ export default {
 				'marquee-reverse': {
 					'0%': { transform: 'translateX(calc(-50% - 2rem))' },
 					'100%': { transform: 'translateX(0)' }
+				},
+				ping: {
+					'75%, 100%': {
+						transform: 'scale(1.5)',
+						opacity: '0',
+					},
+				},
+				'particle-up': {
+					'0%': {
+						transform: 'translateY(0) scale(1)',
+						opacity: '0.2'
+					},
+					'100%': {
+						transform: 'translateY(-20px) scale(0)',
+						opacity: '0'
+					}
+				},
+				'particle-up-left': {
+					'0%': {
+						transform: 'translate(0, 0) scale(1)',
+						opacity: '0.2'
+					},
+					'100%': {
+						transform: 'translate(-10px, -20px) scale(0)',
+						opacity: '0'
+					}
+				},
+				'particle-up-right': {
+					'0%': {
+						transform: 'translate(0, 0) scale(1)',
+						opacity: '0.2'
+					},
+					'100%': {
+						transform: 'translate(10px, -20px) scale(0)',
+						opacity: '0'
+					}
+				},
+				bounce: {
+					'0%, 100%': {
+						transform: 'translateY(-5%)',
+						animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)'
+					},
+					'50%': {
+						transform: 'translateY(0)',
+						animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)'
+					}
 				}
 			},
 			animation: {
@@ -127,7 +173,13 @@ export default {
 				'fade-in': 'fade-in 0.3s ease-out',
 				'fade-out': 'fade-out 0.3s ease-out',
 				'marquee': 'marquee 25s linear infinite',
-				'marquee-reverse': 'marquee-reverse 25s linear infinite'
+				'marquee-reverse': 'marquee-reverse 25s linear infinite',
+				'ping-slow': 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
+				'ping-slower': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
+				'particle-up': 'particle-up 1s ease-out infinite',
+				'particle-up-left': 'particle-up-left 1s ease-out infinite',
+				'particle-up-right': 'particle-up-right 1s ease-out infinite',
+				'bounce': 'bounce 1s infinite'
 			},
 			fontFamily: {
 				'rubik': ['Rubik', 'sans-serif'],
