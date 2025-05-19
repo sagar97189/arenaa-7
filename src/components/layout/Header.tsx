@@ -72,12 +72,12 @@ const Header = () => {
         )}
       >
         <div className="container flex justify-between items-center">
-          <Link 
-            to="/" 
+          <button 
             className="flex items-center space-x-3 cursor-pointer" 
             onClick={() => {
-              if (isHomePage) {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+              window.scrollTo(0, 0);
+              if (!isHomePage) {
+                window.location.href = '/';
               }
             }}
           >
@@ -86,11 +86,21 @@ const Header = () => {
               alt="Arena Animation Logo" 
               className="h-10 w-auto object-contain hover:opacity-90 transition-opacity"
             />
-          </Link>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="font-medium text-arena-blue hover:text-arena-orange transition-colors">Home</Link>
+            <button 
+              className="font-medium text-arena-blue hover:text-arena-orange transition-colors"
+              onClick={() => {
+                window.scrollTo(0, 0);
+                if (!isHomePage) {
+                  window.location.href = '/';
+                }
+              }}
+            >
+              Home
+            </button>
             <button onClick={() => scrollToSection("whychooseus")} className="font-medium text-arena-blue hover:text-arena-orange transition-colors">About Us</button>
             <div className="relative group">
               <button className="flex items-center space-x-1 font-medium text-arena-blue hover:text-arena-orange transition-colors">
@@ -126,7 +136,17 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-white py-4 px-4 shadow-lg absolute w-full z-50">
             <div className="flex flex-col space-y-4">
-              <Link to="/" className="font-medium text-arena-blue hover:text-arena-orange transition-colors">Home</Link>
+              <button 
+                className="font-medium text-arena-blue hover:text-arena-orange transition-colors text-left"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  if (!isHomePage) {
+                    window.location.href = '/';
+                  }
+                }}
+              >
+                Home
+              </button>
               <button onClick={() => scrollToSection("whychooseus")} className="font-medium text-arena-blue hover:text-arena-orange transition-colors text-left">About Us</button>
               <button onClick={() => scrollToSection("courses")} className="font-medium text-arena-blue hover:text-arena-orange transition-colors text-left">Courses</button>
               <button onClick={() => scrollToSection("placements")} className="font-medium text-arena-blue hover:text-arena-orange transition-colors text-left">Placements</button>
