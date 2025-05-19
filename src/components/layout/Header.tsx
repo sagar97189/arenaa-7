@@ -72,11 +72,19 @@ const Header = () => {
         )}
       >
         <div className="container flex justify-between items-center">
-          <Link to="/" className="flex items-center space-x-3">
+          <Link 
+            to="/" 
+            className="flex items-center space-x-3 cursor-pointer" 
+            onClick={() => {
+              if (isHomePage) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
+          >
             <img 
               src="/images/arena-logo.jpg" 
               alt="Arena Animation Logo" 
-              className="h-10 w-auto object-contain"
+              className="h-10 w-auto object-contain hover:opacity-90 transition-opacity"
             />
           </Link>
 
@@ -96,7 +104,7 @@ const Header = () => {
               </div>
             </div>
             <button onClick={() => scrollToSection("placements")} className="font-medium text-arena-blue hover:text-arena-orange transition-colors">Placements</button>
-            <button onClick={() => scrollToSection("gallery")} className="font-medium text-arena-blue hover:text-arena-orange transition-colors">Gallery</button>
+            <button onClick={() => scrollToSection("studentworks")} className="font-medium text-arena-blue hover:text-arena-orange transition-colors">Student Works</button>
             <button onClick={() => scrollToSection("contact")} className="font-medium text-arena-blue hover:text-arena-orange transition-colors">Contact</button>
             <Button 
               className="bg-arena-orange hover:bg-arena-blue text-white"
@@ -122,7 +130,7 @@ const Header = () => {
               <button onClick={() => scrollToSection("whychooseus")} className="font-medium text-arena-blue hover:text-arena-orange transition-colors text-left">About Us</button>
               <button onClick={() => scrollToSection("courses")} className="font-medium text-arena-blue hover:text-arena-orange transition-colors text-left">Courses</button>
               <button onClick={() => scrollToSection("placements")} className="font-medium text-arena-blue hover:text-arena-orange transition-colors text-left">Placements</button>
-              <button onClick={() => scrollToSection("gallery")} className="font-medium text-arena-blue hover:text-arena-orange transition-colors text-left">Gallery</button>
+              <button onClick={() => scrollToSection("studentworks")} className="font-medium text-arena-blue hover:text-arena-orange transition-colors text-left">Student Works</button>
               <button onClick={() => scrollToSection("contact")} className="font-medium text-arena-blue hover:text-arena-orange transition-colors text-left">Contact</button>
               <Button 
                 className="bg-arena-orange hover:bg-arena-blue text-white w-full"

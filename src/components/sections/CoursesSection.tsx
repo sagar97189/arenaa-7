@@ -3,6 +3,8 @@ import { Clock, Users, Star, BookOpen, Play, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import CourseContactForm from "@/components/CourseContactForm";
 import { Link } from "react-router-dom";
 
 export interface CourseCardProps {
@@ -129,22 +131,16 @@ export const CourseCard = ({ title, image, duration, students, rating, descripti
         </HoverCard>
 
         <div className="mt-5 pt-4 border-t border-gray-100">
-          <Link to={`/course/${courseSlug}`} state={{ 
-            courseData: {
-              title,
-              image,
-              duration,
-              students,
-              rating,
-              description,
-              features,
-              icon
-            }
-          }}>
-            <Button className="bg-arena-orange hover:bg-arena-blue text-white w-full transition-all duration-300 group">
-              <span className="group-hover:translate-x-1 inline-block transition-transform duration-300">View Course Details</span>
-            </Button>
-          </Link>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button className="bg-arena-orange hover:bg-arena-blue text-white w-full transition-all duration-300 group">
+                <span className="group-hover:translate-x-1 inline-block transition-transform duration-300">Tap for more info</span>
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[500px] p-0">
+              <CourseContactForm courseName={title} />
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </div>
@@ -279,11 +275,16 @@ const CoursesSection = () => {
         </div>
         
         <div className="text-center mt-12">
-          <Link to="/courses">
-            <Button className="bg-arena-orange hover:bg-arena-blue text-white text-lg py-6 px-8 transition-all duration-300 transform hover:scale-105">
-              View All Courses
-            </Button>
-          </Link>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button className="bg-arena-orange hover:bg-arena-blue text-white text-lg py-6 px-8 transition-all duration-300 transform hover:scale-105">
+                Enroll Now
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[500px] p-0">
+              <CourseContactForm courseName="All Courses" />
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </section>

@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -98,7 +97,7 @@ const StudentWorksSection = () => {
   };
 
   return (
-    <section id="gallery" className="section-container bg-arena-gray">
+    <section id="studentworks" className="section-container bg-arena-gray">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h5 className="section-subtitle">STUDENT SHOWCASE</h5>
