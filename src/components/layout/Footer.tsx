@@ -67,12 +67,12 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#gallery" className="flex items-center hover:text-arena-orange transition-colors" onClick={(e) => {
+                <a href="#studentworks" className="flex items-center hover:text-arena-orange transition-colors" onClick={(e) => {
                   e.preventDefault();
-                  document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' });
+                  document.getElementById('studentworks')?.scrollIntoView({ behavior: 'smooth' });
                 }}>
                   <ChevronRight size={16} className="mr-2" />
-                  <span>Gallery</span>
+                  <span>Student Works</span>
                 </a>
               </li>
               <li>
