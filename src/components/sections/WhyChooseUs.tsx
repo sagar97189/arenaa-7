@@ -24,6 +24,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import ContactForm from "@/components/ContactForm";
 
 const ContactInfo = () => {
   const phoneNumber = "+919213404924";
@@ -156,13 +157,20 @@ const FeatureCard = ({
         )}>
           {description}
         </p>
-        <div className={cn(
-          "mt-6 flex items-center font-medium transition-all duration-500",
-          isActive ? "text-white opacity-100" : "opacity-0"
-        )}>
-          <span className="mr-2">Learn More</span>
-          <ArrowRight size={16} />
-        </div>
+        <Dialog>
+          <DialogTrigger asChild>
+            <div className={cn(
+              "mt-6 flex items-center font-medium transition-all duration-500 cursor-pointer",
+              isActive ? "text-white opacity-100" : "opacity-0"
+            )}>
+              <span className="mr-2">Learn More</span>
+              <ArrowRight size={16} />
+            </div>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-[425px] p-0">
+            <ContactForm />
+          </DialogContent>
+        </Dialog>
       </div>
     </motion.div>
   );

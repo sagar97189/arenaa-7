@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import ContactForm from "@/components/ContactForm";
 
 interface GalleryItemProps {
   image: string;
@@ -173,6 +176,20 @@ const StudentWorksSection = () => {
             </div>
           </div>
         )}
+
+        {/* Enroll Now Button */}
+        <div className="text-center mt-12">
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button className="bg-arena-orange hover:bg-arena-blue text-white text-lg py-6 px-8 transition-all duration-300 transform hover:scale-105">
+                Enroll Now
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px] p-0">
+              <ContactForm />
+            </DialogContent>
+          </Dialog>
+        </div>
       </div>
     </section>
   );
