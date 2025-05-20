@@ -11,7 +11,9 @@ import {
   GraduationCap,
   Target,
   Zap,
-  Phone
+  Phone,
+  Mail,
+  MessageSquare
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -22,6 +24,64 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+
+const ContactInfo = () => {
+  const phoneNumber = "+919213404924";
+  const whatsappNumber = "919213404924";
+  const email = "info@arenafaridabad.in";
+
+  return (
+    <div className="bg-white p-4 md:p-6 rounded-lg">
+      <h3 className="text-arena-blue text-xl font-bold mb-4">Contact Us</h3>
+      <div className="space-y-4">
+        <div>
+          <h4 className="text-base font-semibold text-gray-800 mb-2">Get in Touch</h4>
+          <p className="text-sm text-gray-600 mb-3">
+            Reach out to us directly through call or WhatsApp for quick assistance and enrollment details.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <a 
+            href={`tel:${phoneNumber}`}
+            className="flex items-center justify-center gap-2 bg-arena-orange hover:bg-arena-blue text-white py-2.5 px-4 rounded-lg transition-colors"
+          >
+            <Phone className="w-4 h-4" />
+            <span className="font-medium text-sm">Call Now</span>
+          </a>
+          
+          <a 
+            href={`https://wa.me/${whatsappNumber}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white py-2.5 px-4 rounded-lg transition-colors"
+          >
+            <MessageSquare className="w-4 h-4" />
+            <span className="font-medium text-sm">WhatsApp</span>
+          </a>
+        </div>
+
+        <div className="mt-4 pt-4 border-t border-gray-200">
+          <h4 className="text-base font-semibold text-gray-800 mb-2">Contact Details</h4>
+          <div className="space-y-1.5 text-sm text-gray-600">
+            <div className="flex items-center gap-2">
+              <Phone className="w-4 h-4 text-arena-orange" />
+              <span>{phoneNumber}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Mail className="w-4 h-4 text-arena-orange" />
+              <span>{email}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MessageSquare className="w-4 h-4 text-arena-orange" />
+              <span>WhatsApp: {phoneNumber}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const FeatureCard = ({ 
   icon: Icon, 
@@ -302,72 +362,7 @@ const WhyChooseUs = () => {
               </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[400px] p-0">
-              <div className="flex flex-col">
-                <div className="bg-arena-blue text-white p-4">
-                  <DialogTitle className="text-xl font-bold text-center">
-                    Request Information
-                  </DialogTitle>
-                </div>
-
-                <div className="p-4">
-                  <div className="mb-4 p-3 bg-green-50 rounded-lg">
-                    <div className="flex items-center gap-2 text-green-700 text-sm">
-                      <Phone className="w-4 h-4" />
-                      <div>
-                        <p className="font-medium">Contact us:</p>
-                        <a href={`tel:${phoneNumber}`} className="hover:underline">{phoneNumber}</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <form className="space-y-3">
-                    <input
-                      type="text"
-                      id="modal-name"
-                      className="w-full p-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-arena-orange"
-                      placeholder="Full Name*"
-                      required
-                    />
-                    <input
-                      type="email"
-                      id="modal-email"
-                      className="w-full p-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-arena-orange"
-                      placeholder="Email Address*"
-                      required
-                    />
-                    <input
-                      type="tel"
-                      id="modal-phone"
-                      className="w-full p-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-arena-orange"
-                      placeholder="Phone Number*"
-                      required
-                    />
-                    <select
-                      id="modal-course"
-                      className="w-full p-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-arena-orange"
-                      required
-                    >
-                      <option value="">Select Course*</option>
-                      <option value="Animation & VFX Prime">Animation & VFX Prime</option>
-                      <option value="Game Art & Design">Game Art & Design</option>
-                      <option value="Graphic & Web Design">Graphic & Web Design</option>
-                      <option value="Digital Marketing">Digital Marketing</option>
-                    </select>
-                    <textarea
-                      id="modal-message"
-                      className="w-full p-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-arena-orange"
-                      placeholder="Message (Optional)"
-                      rows={2}
-                    ></textarea>
-                  </form>
-                </div>
-
-                <div className="border-t border-gray-200 p-4">
-                  <Button className="w-full bg-arena-orange hover:bg-arena-blue text-white py-2 text-base">
-                    Submit Request
-                  </Button>
-                </div>
-              </div>
+              <ContactInfo />
             </DialogContent>
           </Dialog>
         </motion.div>

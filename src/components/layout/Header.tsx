@@ -17,7 +17,15 @@ const Header = () => {
   };
 
   const handleEnquiryClick = () => {
-    setIsEnquiryModalOpen(true);
+    if (!isHomePage) {
+      window.location.href = '/#start-journey';
+      return;
+    }
+    const element = document.getElementById('start-journey');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
+    }
   };
 
   const scrollToSection = (sectionId: string) => {

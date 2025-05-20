@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Youtube, Twitter, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Footer = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // TODO: Implement form submission logic
+    console.log('Form submitted:', formData);
+
+    // Clear form
+    setFormData({
+      name: '',
+      email: '',
+      message: ''
+    });
+  };
+
   return (
     <footer id="contact" className="bg-arena-blue text-white">
       <div className="container mx-auto px-4 py-16">
@@ -116,29 +144,41 @@ const Footer = () => {
           {/* Contact Form */}
           <div>
             <h3 className="text-xl font-bold mb-6">Send Us a Message</h3>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="Your Name"
+                  required
                   className="w-full p-3 bg-arena-lightblue border-none rounded focus:outline-none focus:ring-2 focus:ring-arena-orange text-white"
                 />
               </div>
               <div className="mb-4">
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="Your Email"
+                  required
                   className="w-full p-3 bg-arena-lightblue border-none rounded focus:outline-none focus:ring-2 focus:ring-arena-orange text-white"
                 />
               </div>
               <div className="mb-4">
                 <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Your Message"
+                  required
                   className="w-full p-3 bg-arena-lightblue border-none rounded focus:outline-none focus:ring-2 focus:ring-arena-orange text-white"
                   rows={3}
                 ></textarea>
               </div>
-              <Button className="w-full bg-arena-orange hover:bg-white hover:text-arena-blue">
+              <Button type="submit" className="w-full bg-arena-orange hover:bg-white hover:text-arena-blue">
                 Send Message
               </Button>
             </form>
