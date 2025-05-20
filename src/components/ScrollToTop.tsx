@@ -59,7 +59,7 @@ const ScrollToTop = () => {
   return (
     <div 
       className={cn(
-        "fixed bottom-8 right-8 z-50",
+        "fixed md:bottom-8 bottom-20 right-8 z-50",
         "transition-all duration-500 ease-in-out transform",
         isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
       )}
