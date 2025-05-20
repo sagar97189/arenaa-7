@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Phone, MessageSquare } from "lucide-react";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import ContactForm from "@/components/ContactForm";
 
 const HeroSection = () => {
   const phoneNumber = "+919213404924";
@@ -9,30 +10,31 @@ const HeroSection = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <div className="relative bg-arena-blue text-white min-h-[600px] flex items-center">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-arena-blue/95 to-arena-blue/70"></div>
-        <div
-          style={{ backgroundImage: "url('/images/hero.jpg')" }}
-          className="absolute inset-0 bg-cover bg-center"
+    <section className="relative min-h-[80vh] flex items-center">
+      <div className="absolute inset-0">
+        <div 
+          className="absolute inset-0 bg-[url('/images/hero-bg.jpg')] bg-cover bg-center"
+        ></div>
+        <div 
+          className="absolute inset-0 bg-black/30"
+          style={{
+            backdropFilter: 'brightness(0.9)'
+          }}
         ></div>
       </div>
       
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-3xl">
           <h5 className="text-arena-orange font-bold text-xl mb-3">WELCOME TO ARENA ANIMATION</h5>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
             Shape Your Creative Future With Arena Animation
           </h1>
-          <p className="text-lg opacity-90 mb-8">
+          <p className="text-lg text-white/90 mb-8">
             Transform your creative passion into a professional career with industry-relevant courses. 
             Join Sector 7 Faridabad's leading animation institute.
           </p>
@@ -43,13 +45,19 @@ const HeroSection = () => {
             >
               Discover Courses
             </Button>
-            <Button 
-              onClick={() => scrollToSection('contact')}
-              variant="outline" 
-              className="border-white text-arena-blue hover:bg-white hover:text-arena-orange text-lg py-6 px-8"
-            >
-              Contact Us
-            </Button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button 
+                  variant="outline" 
+                  className="border-white text-arena-orange hover:bg-white hover:text-arena-blue text-lg py-6 px-8"
+                >
+                  Contact Us
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px] p-0">
+                <ContactForm />
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </div>
@@ -71,7 +79,7 @@ const HeroSection = () => {
           <span className="font-medium text-sm uppercase">WhatsApp Now</span>
         </a>
       </div>
-    </div>
+    </section>
   );
 };
 
